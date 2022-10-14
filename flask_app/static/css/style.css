@@ -1,0 +1,38 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+#mainBody{
+    width: 85vw;
+    margin: 0 auto;
+}
+
+.loginBlock{
+    width: 40vw;
+}
+
+#dashboard{
+    width: 65vw;
+    margin: 10vh auto;
+}
+
+#main{
+    display: flex;
+    flex-direction: column;
+    width: 35vw;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: rgba(46, 139, 86, 0.093);
+    border-radius: 30px;
+}
+
+#navbar{
+    width: 35vw;
+    margin: 4vh auto;
+}
+
+#likeCount{
+    height: 50px;
+    text-align: center;
+}

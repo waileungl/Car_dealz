@@ -1,0 +1,33 @@
+{% extends "add_cars.html" %}
+
+
+{% block content %}
+<nav id = "navbar" class="d-flex justify-content-between align-items-center">
+    <p></p>
+    <div  class="d-flex justify-content-end">
+        <a href="/cars" class="btn btn-secondary me-3 btn-sm">Back</a>
+        <a href="/logout" class="btn btn-outline-danger btn-sm">logout</a>
+    </div>
+</nav>
+
+<main id="main">
+    <table class="table">
+        <thead>
+            <tr class="table-primary">
+                <td>Make</td>
+                <td>Model</td>
+                <td>Year</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for car in user_purchases %}
+                <tr>
+                    <td>{{ car.make }}</td>
+                    <td>{{ car.model }}</td>
+                    <td>{{ car.year }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</main>
+{% endblock %}

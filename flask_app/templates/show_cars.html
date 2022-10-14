@@ -1,0 +1,45 @@
+{% extends "add_cars.html" %}
+
+
+{% block content %}
+<nav id = "navbar" class="d-flex justify-content-between align-items-center">
+    <p></p>
+    <div  class="d-flex justify-content-end">
+        <a href="/cars" class="btn btn-secondary me-3 btn-sm">Back</a>
+        <a href="/logout" class="btn btn-outline-danger btn-sm">logout</a>
+    </div>
+</nav>
+
+<main id="main">
+    <table class="table table-striped-column">
+        <tr>
+            <td><h3>$ {{ car_info_pack.price }}</h1></td>
+        </tr>
+        <tr>
+            <td><b>Model:</b></td>
+            <td>{{ car_info_pack.model }}</td>
+        </tr>
+        <tr>
+            <td><b>Make:</b></td>
+            <td>{{ car_info_pack.make }}</td>
+        </tr>
+        <tr>
+            <td><b>Year:</b></td>
+            <td>{{ car_info_pack.year }}</td>
+        </tr>
+        <tr>
+            <td><b>Description:</b></td>
+            <td>{{ car_info_pack.description }}</td>
+        </tr>
+        <tr>
+            <td><b>Seller:</b></td>
+            <td>{{ car_info_pack.seller_name }}</td>
+        </tr>
+    </table>
+    <div class="d-flex justify-content-end">
+        {% if car_info_pack.owner_id != session["id"] %}
+            <a href="/cars/purchase/{{ car_info_pack.id }}" class="btn btn-success">Purchase</a>
+        {% endif %}
+    </div>
+    {% endblock %}
+</main>

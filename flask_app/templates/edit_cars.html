@@ -1,0 +1,50 @@
+{% extends "add_cars.html" %}
+
+
+{% block content %}
+<nav id = "navbar" class="d-flex justify-content-between align-items-center">
+    <p class="h3 text-success"> Edit car</p>
+    <div  class="d-flex justify-content-end">
+        <a href="/cars" class="btn btn-secondary me-3 btn-sm">Back</a>
+        <a href="/logout" class="btn btn-outline-danger btn-sm">logout</a>
+    </div>
+</nav>
+
+<form action="/edit_car" method="post">
+    <main id="main">
+        {% with messages = get_flashed_messages(category_filter = ["add_car"]) %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="form-text">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <div class="row">
+            <div class="mb-3 col">
+                <label for="price col" class="form-label">Price: </label>
+                <input name="price" type="number" class="form-control" id="price" value="{{ car_info_pack.price }}">
+            </div>
+            <div class="mb-3 col">
+                <label for="year" class="form-label">Year: </label>
+                <input name="year" type="number" class="form-control" id="year" value="{{ car_info_pack.year }}";>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="model" class="form-label">Model: </label>
+            <input name="model" type="text" class="form-control" id="model" value= "{{ car_info_pack.model }}">
+        </div>
+        <div class="mb-3">
+            <label for="make" class="form-label">Make: </label>
+            <input name="make" type="text" class="form-control" id="make" value= "{{ car_info_pack.make }}">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description: </label>
+            <textarea name="description" class="form-control" id="description" rows="3">{{ car_info_pack.description }}</textarea>
+        </div>
+        <input type="hidden" name="car_id" value="{{ car_info_pack.id }}">
+        <button type="submit"  class="btn btn-warning my-3 col-3">Update</button>
+    </main>
+</form>
+{% endblock %}
